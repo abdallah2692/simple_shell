@@ -12,11 +12,50 @@ char *_read(int *num)
 	char *lineptr = NULL;
 
 	*num = getline(&lineptr, &size, stdin);
+
 	if (*num == -1)
 	{
-		perror("error in getline function");
-		exit(EXIT_FAILURE);
+		if (feof(stdin))
+		{
+			exit(EXIT_SUCCESS);
+		}
+		else
+		{
+			perror("Error in getline function");
+			exit(EXIT_FAILURE);
+		}
+
+	}
+	return (lineptr);
+}
+/**
+ * _execute - executing the command
+ *
+ * @lineptr: the command to be executed
+ *
+ * Return: void
+ */
+void _execute(const char *lineptr)
+{
+	pid_t child_pid = fork();
+	const char *argv[] = {lineptr, NULL};
+
+	if (child_pid == 0)
+	{
+		if (execve(lineptr, argv, NULL) == -1)
+		{
+			perror("Error in execve function");
+			exit(EXIT_FAILURE);
+		}
 	}
 
-	return (lineptr);
+	else if (child_pid == -1)
+	{
+		perror("Error in fork function");
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
+		wait(NULL);
+	}
 }

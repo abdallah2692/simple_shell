@@ -4,9 +4,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/wait.h>
 
 void _printf(const char *string);
 void _prompt(void);
 char *_read(int *num);
+void _execute(const char *lineptr);
 
 #endif

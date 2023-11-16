@@ -13,6 +13,7 @@ int main(void)
 	{
 		_prompt();
 		lineptr = _read(&num);
+		_execute(lineptr);
 
 		free(lineptr);
 	}
