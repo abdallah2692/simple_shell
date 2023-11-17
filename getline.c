@@ -45,7 +45,7 @@ void _execute(char *lineptr)
 
 	if (child_pid == 0)
 	{
-		if (execve(lineptr, argv, NULL) == -1)
+		if (execve(argv[0], argv, NULL) == -1)
 		{
 			perror("Error in execve function");
 			exit(EXIT_FAILURE);

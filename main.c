@@ -13,10 +13,16 @@ int main(void)
 	{
 		_prompt();
 		lineptr = _read(&num);
+		
+		if (num == -1)
+		{
+			_printf("\n");
+			break;
+		}
 		_execute(lineptr);
-
-		free(lineptr);
 	}
 
-	return (0);
+	free(lineptr);
+
+	return (EXIT_SUCCESS);
 }
