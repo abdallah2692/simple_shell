@@ -35,10 +35,13 @@ char *_read(int *num)
  *
  * Return: void
  */
-void _execute(const char *lineptr)
+void _execute(char* lineptr)
 {
 	pid_t child_pid = fork();
-	const char *argv[] = {lineptr, NULL};
+	char* argv[2];
+
+	argv[0] = lineptr;
+	argv[1] = NULL;
 
 	if (child_pid == 0)
 	{
@@ -48,7 +51,6 @@ void _execute(const char *lineptr)
 			exit(EXIT_FAILURE);
 		}
 	}
-
 	else if (child_pid == -1)
 	{
 		perror("Error in fork function");
