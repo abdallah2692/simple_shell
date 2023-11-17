@@ -18,5 +18,5 @@ void _printf(const char *string)
 
 void _prompt(void)
 {
-	_printf("hsh$$$ ");
+	_printf("($) ");
 }
