@@ -35,10 +35,10 @@ char *_read(int *num)
  *
  * Return: void
  */
-void _execute(char* lineptr)
+void _execute(char *lineptr)
 {
 	pid_t child_pid = fork();
-	char* argv[2];
+	char *argv[2];
 
 	argv[0] = lineptr;
 	argv[1] = NULL;

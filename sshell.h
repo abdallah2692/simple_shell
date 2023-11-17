@@ -9,6 +9,6 @@
 void _printf(const char *string);
 void _prompt(void);
 char *_read(int *num);
-void _execute(char* lineptr);
+void _execute(char *lineptr);
 
 #endif
