@@ -13,7 +13,7 @@ int main(void)
 	{
 		_prompt();
 		lineptr = _read(&num);
-		
+
 		if (num == -1)
 		{
 			_printf("\n");
